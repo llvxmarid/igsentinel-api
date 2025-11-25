@@ -1,4 +1,19 @@
-import base64
+from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
+from PIL import Image
+import pytesseract
+import io
+
+app = FastAPI()
+
+# CORS - panelin API'ye erişebilmesi için ŞART
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)import base64
 import io
 import json
 from PIL import Image
